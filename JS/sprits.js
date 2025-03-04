@@ -13,9 +13,9 @@ class Sprite {
     }
 
     update(){
-
-        if (this.position.y+this.height >= canvas.height){
-            this.velocity.y = canvas.height - (this.position.y+this.height)
+        if (this.position.y+this.height > canvas.height){
+            this.position.y = canvas.height-this.height
+            this.velocity.y = 0
         } else {
             this.velocity.y += gravity
         }
