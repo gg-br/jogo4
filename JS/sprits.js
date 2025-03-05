@@ -13,6 +13,12 @@ class Sprite {
     }
 
     update(){
+        if (Math.ceil(this.position.y+this.height >= canvas.height)){
+           this.onGround = true
+        } else {
+            this.onGround = false
+        }
+
         if (this.position.y+this.height > canvas.height){
             this.position.y = canvas.height-this.height
             this.velocity.y = 0
@@ -24,6 +30,11 @@ class Sprite {
         this.position.y += this.velocity.y
 
         this.draw()
+    }
+
+    jump(){
+        if (!this.onGround) return
+        this.velocity.y = -16
     }
 }
 
@@ -43,6 +54,8 @@ class Fighter extends Sprite {
         this.height = dimensions.height
 
         this.lastKeyPressed
+
+        this.onGround
     }
 }
 

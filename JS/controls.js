@@ -63,7 +63,7 @@ function handControls(){
             player.velocity.x = 1.5 * 3.4
         }
         if (keys.w.pressed){
-            player.velocity.y = -7
+            player.jump()
         }
     }
 }
